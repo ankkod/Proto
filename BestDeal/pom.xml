@@ -60,8 +60,48 @@
 	<version>5.2.2.Final</version>
 </dependency>
 
+<!-- <dependency>
+ <groupId>org.hibernate</groupId>
+ <artifactId>hibernate</artifactId>
+ <version>3.3.2.ga</version>
+</dependency> -->
+ <dependency>
+	<groupId>javax.validation</groupId>
+	<artifactId>validation-api</artifactId>
+	<version>1.1.0.Final</version>
+</dependency> 
+<dependency>
+	<groupId>org.slf4j</groupId>
+	<artifactId>slf4j-api</artifactId>
+	<version>1.7.21</version>
+</dependency>
+<dependency>
+	<groupId>org.jboss.logging</groupId>
+	<artifactId>jboss-logging</artifactId>
+	<version>3.3.0.Final</version>
+</dependency>
+<dependency>
+	<groupId>org.slf4j</groupId>
+	<artifactId>slf4j-log4j12</artifactId>
+	<version>1.7.21</version>
+</dependency>
+<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<version>5.1.38</version>
+</dependency>
+
+
+
+
 
   </dependencies>
+  <!-- <repository>
+        <id>java.net.m2repo</id>
+        <name>java.net Maven 2 Repository</name>
+        <url>http://download.java.net/maven/2/</url>
+        <layout>default</layout>
+    </repository> -->
   <build>
     <finalName>BestDeals</finalName>
   </build>
