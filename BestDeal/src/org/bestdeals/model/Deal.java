@@ -8,7 +8,7 @@ public class Deal {
 	private String dealUrl;
 	private String imageUrl;
 	private String title;
-	private String price;
+	private double price;
 	private String tags;
 	private int categoryId;
 	private Date startDate;
@@ -20,7 +20,7 @@ public class Deal {
 	private int commentCount;
 	
 	
-	public Deal(int dealId, String dealUrl, String imageUrl, String title, String price, String tags, int categoryId,
+	public Deal(int dealId, String dealUrl, String imageUrl, String title, double price, String tags, int categoryId,
 			Date startDate, Date endDate, String email, Date date, int upvoteCount, int downvoteCount,
 			int commentCount) {
 		super();
@@ -102,12 +102,12 @@ public class Deal {
 	}
 
 
-	public String getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
 
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 

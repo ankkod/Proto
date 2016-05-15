@@ -21,5 +21,26 @@
               </property>
         </bean>
 
+<bean id="Deal" class="org.bestdeals.model.Deal">
+<property name="dealId">
+<value>123</value>
+</property>
+<property name="dealUrl">
+<value>"/src/bin"</value>
 
+</property>
+<property name="title">
+<value>"test item"</value>
+</property>
+<property name="price">
+<value>123</value>
+</property>
+<property name="categoryId">
+<value>1</value>
+</property>
+</bean>
+
+<bean id="DealDao" class="org.bestdeals.dao.DealDao">
+
+</bean>
 </beans>
