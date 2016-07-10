@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-Jul-2016 12:03:58 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.bestdeals.model.Voucher" table="VOUCHER">
+        <id name="voucherId" type="int">
+            <column name="VOUCHERID" />
+            <generator class="assigned" />
+        </id>
+        <property name="dealUrl" type="java.lang.String">
+            <column name="DEALURL" />
+        </property>
+        <property name="discount" type="int">
+            <column name="DISCOUNT" />
+        </property>
+        <property name="code" type="java.lang.String">
+            <column name="CODE" />
+        </property>
+        <property name="minimumSpent" type="int">
+            <column name="MINIMUMSPENT" />
+        </property>
+        <property name="image" type="java.lang.String">
+            <column name="IMAGE" />
+        </property>
+        <property name="instructions" type="java.lang.String">
+            <column name="INSTRUCTIONS" />
+        </property>
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" />
+        </property>
+        <property name="tags" type="java.lang.String">
+            <column name="TAGS" />
+        </property>
+        <property name="categoryId" type="int">
+            <column name="CATEGORYID" />
+        </property>
+        <property name="startDate" type="java.util.Date">
+            <column name="STARTDATE" />
+        </property>
+        <property name="endDate" type="java.util.Date">
+            <column name="ENDDATE" />
+        </property>
+        <property name="emailAdd" type="java.lang.String">
+            <column name="EMAILADD" />
+        </property>
+        <property name="date" type="java.util.Date">
+            <column name="DATE" />
+        </property>
+        <property name="upVoteCount" type="int">
+            <column name="UPVOTECOUNT" />
+        </property>
+        <property name="downVoteCount" type="int">
+            <column name="DOWNVOTECOUNT" />
+        </property>
+        <property name="commentCount" type="int">
+            <column name="COMMENTCOUNT" />
+        </property>
+    </class>
+</hibernate-mapping>

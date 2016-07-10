@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-Jul-2016 12:03:17 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.bestdeals.model.Ask" table="ASK">
+        <id name="askId" type="int">
+            <column name="ASKID" />
+            <generator class="assigned" />
+        </id>
+        <property name="question" type="java.lang.String">
+            <column name="QUESTION" />
+        </property>
+        <property name="details" type="java.lang.String">
+            <column name="DETAILS" />
+        </property>
+        <property name="tags" type="java.lang.String">
+            <column name="TAGS" />
+        </property>
+        <property name="categoryId" type="int">
+            <column name="CATEGORYID" />
+        </property>
+        <property name="emailAdd" type="java.lang.String">
+            <column name="EMAILADD" />
+        </property>
+        <property name="date" type="java.util.Date">
+            <column name="DATE" />
+        </property>
+    </class>
+</hibernate-mapping>
