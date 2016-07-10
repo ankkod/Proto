@@ -1,8 +1,12 @@
 package org.bestdeals.dao;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.bestdeals.model.Ask;
 import org.bestdeals.model.Deal;
 import org.bestdeals.model.Freebies;
@@ -32,7 +36,7 @@ public class DealDao {
 		Session session=DaoService.getSession();
 		Transaction transaction=session.getTransaction();
 		transaction.begin();
-		logger.log(Level.FINE, "Object", deal.toString());
+		logger.log(Level.FINE, "new deal", deal.toString());
 		session.save(deal);
 		
 		session.flush();
@@ -51,7 +55,7 @@ public class DealDao {
 		Session session=DaoService.getSession();
 		Transaction transaction=session.getTransaction();
 		transaction.begin();
-		logger.log(Level.FINE, "Object", ask.toString());
+		logger.log(Level.FINE, "new ask", ask.toString());
 		session.save(ask);
 		
 		session.flush();
@@ -59,34 +63,29 @@ public class DealDao {
 		transaction.commit();
 		session.close();
 	}
-	public void saveFreebie(Freebies freebie){
-		
-//		Configuration co
-		
+	
+	
+	
+	public Deal getDeal(int dealId){
 		Session session=DaoService.getSession();
-		Transaction transaction=session.getTransaction();
-		transaction.begin();
-		logger.log(Level.FINE, "Object", freebie.toString());
-		session.save(freebie);
-		
-		session.flush();
-		
-		transaction.commit();
-		session.close();
+		Deal deal=session.get(Deal.class, dealId);
+		return deal;
 	}
-	public void saveVoucher(Voucher voucher){
-		
-//		Configuration co
-		
+	
+	public List<Deal> getDeals(){
 		Session session=DaoService.getSession();
-		Transaction transaction=session.getTransaction();
-		transaction.begin();
-		logger.log(Level.FINE, "Object", voucher.toString());
-		session.save(voucher);
+		List<Deal> allDeals=session.createQuery("from deal").list();
+		List<Deal> deals=new ArrayList<Deal>();
+		for (Deal deal : allDeals) {
+			Calendar expiry=Calendar.getInstance();
+			Calendar current=Calendar.getInstance();
+			expiry.setTime(deal.getEndDate());
+			if(current.getTime().before(expiry.getTime())){
+				deals.add(deal);
+			}
+		}
 		
-		session.flush();
+		return deals;
 		
-		transaction.commit();
-		session.close();
 	}
 }
