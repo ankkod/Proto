@@ -6,13 +6,15 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Deal")
 public class Deal implements Serializable{
-	@Id @GeneratedValue
+	@Id 
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="DEAL_ID")
 	private int dealId;
 	@Column(name="DEAL_URL")
@@ -37,16 +39,8 @@ public class Deal implements Serializable{
 	private Date date;
 	@Column(name="DEAL_INFO")
 	private String dealInfo;
-	@Column(name="UPVOTECOUNT")
-	private int upvoteCount;
-	@Column(name="DOWNVOTECOUNT")
-	private int downvoteCount;
-	@Column(name="COMMENTCOUNT")
-	private int commentCount;
-	
-	
 	public Deal(int dealId, String dealUrl, String imageUrl, String title, double price, String tags, int categoryId,
-			Date startDate, Date endDate, String email, Date date, int upvoteCount, int downvoteCount,
+			Date startDate, Date endDate, String email, Date date, String dealInfo, int upvoteCount, int downvoteCount,
 			int commentCount) {
 		super();
 		this.dealId = dealId;
@@ -60,10 +54,32 @@ public class Deal implements Serializable{
 		this.endDate = endDate;
 		this.email = email;
 		this.date = date;
+		this.dealInfo = dealInfo;
 		this.upvoteCount = upvoteCount;
 		this.downvoteCount = downvoteCount;
 		this.commentCount = commentCount;
 	}
+
+
+	public String getDealInfo() {
+		return dealInfo;
+	}
+
+
+	public void setDealInfo(String dealInfo) {
+		this.dealInfo = dealInfo;
+	}
+
+
+	@Column(name="UPVOTECOUNT")
+	private int upvoteCount;
+	@Column(name="DOWNVOTECOUNT")
+	private int downvoteCount;
+	@Column(name="COMMENTCOUNT")
+	private int commentCount;
+	
+	
+	
 
 
 	@Override
@@ -82,8 +98,11 @@ public class Deal implements Serializable{
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "Deal [dealId=" + dealId + ", dealUrl=" + dealUrl + ", imageUrl=" + imageUrl + ", title=" + title
+				+ ", price=" + price + ", tags=" + tags + ", categoryId=" + categoryId + ", startDate=" + startDate
+				+ ", endDate=" + endDate + ", email=" + email + ", date=" + date + ", dealInfo=" + dealInfo
+				+ ", upvoteCount=" + upvoteCount + ", downvoteCount=" + downvoteCount + ", commentCount=" + commentCount
+				+ "]";
 	}
 
 

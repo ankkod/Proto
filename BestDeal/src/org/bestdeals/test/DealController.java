@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -26,8 +28,9 @@ public class DealController {
 	DealDao dealdao;
 	
 	@RequestMapping(value="/submitDeal", method = RequestMethod.POST)
-	public String saveDeal(@RequestBody Deal jdeal){
-	/*	ObjectMapper om=new ObjectMapper();
+	public String saveDeal(@RequestBody String jdeal){
+		System.out.println("jdeal"+jdeal);
+		ObjectMapper om=new ObjectMapper();
 		Deal deal=null;
 		try {
 			deal = om.readValue(jdeal.toString(),Deal.class);
@@ -42,24 +45,43 @@ public class DealController {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		System.out.println("jdeal"+jdeal);
-		dealdao.saveDeal(jdeal);
+		dealdao.saveDeal(deal);
 		System.out.println("Deal saved");
 		return "RegisterDeal";	
 	}
-	//Incomplete
-	@RequestMapping(value="/getdeal/{dealId}", method = RequestMethod.GET)
-	public void getDeal(@RequestParam("dealId") int dealId){
+	
+	@RequestMapping(value="/getDeal/{dealId}", method = RequestMethod.GET)
+	public @ResponseBody String getDeal(@PathVariable("dealId") int dealId){
+		ObjectMapper omapper=new ObjectMapper();
+		//int dealID=Integer.parseInt(dealId);
 		Deal deal=dealdao.getDeal(dealId);
-		return;
+		System.out.println("deal "+deal);
+		String dealJson=null;
+		try {
+			dealJson = omapper.writeValueAsString(deal);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage()+" while converting into json "+deal.toString());
+			e.printStackTrace();
+		}
+		return dealJson;
 		
 	}
 	//Incomplete
-	@RequestMapping(value="/getdeal", method = RequestMethod.GET)
+	@RequestMapping(value="/getDealsAll", method = RequestMethod.GET)
 	public String getDeals(){
-		
-		
+		List<Deal> deals= dealdao.getDeals();
+		System.out.println("deals"+ deals);
+		ObjectMapper omapper=new ObjectMapper();
+		try {
+			String list=omapper.writeValueAsString(deals);
+			System.out.println("delas in json"+ list);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "RegisterDeal";
 		
 	}

@@ -74,7 +74,7 @@ public class DealDao {
 	
 	public List<Deal> getDeals(){
 		Session session=DaoService.getSession();
-		List<Deal> allDeals=session.createQuery("from deal").list();
+		List<Deal> allDeals=session.createQuery("from Deal").list();
 		List<Deal> deals=new ArrayList<Deal>();
 		for (Deal deal : allDeals) {
 			Calendar expiry=Calendar.getInstance();
