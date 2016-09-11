@@ -1,22 +1,47 @@
 package org.bestdeals.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Deal {
-	
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Deal")
+public class Deal implements Serializable{
+	@Id @GeneratedValue
+	@Column(name="DEAL_ID")
 	private int dealId;
+	@Column(name="DEAL_URL")
 	private String dealUrl;
+	@Column(name="IMAGE")
 	private String imageUrl;
+	@Column(name="TITLE")
 	private String title;
+	@Column(name="PRICE")
 	private double price;
+	@Column(name="TAGS")
 	private String tags;
+	@Column(name="CATEGORY_ID")
 	private int categoryId;
+	@Column(name="STARTDATE")
 	private Date startDate;
+	@Column(name="ENDDATE")
 	private Date endDate;
+	@Column(name="EMAILadd")
 	private String email;
+	@Column(name="DATE")
 	private Date date;
+	@Column(name="DEAL_INFO")
+	private String dealInfo;
+	@Column(name="UPVOTECOUNT")
 	private int upvoteCount;
+	@Column(name="DOWNVOTECOUNT")
 	private int downvoteCount;
+	@Column(name="COMMENTCOUNT")
 	private int commentCount;
 	
 	

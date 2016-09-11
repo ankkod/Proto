@@ -43,6 +43,7 @@
 <bean id="DealDao" class="org.bestdeals.dao.DealDao">
 
 </bean>
+
 <mvc:resources mapping="/resources/**" location="/resources/"  
 	cache-period="31556926"/>
 </beans>
