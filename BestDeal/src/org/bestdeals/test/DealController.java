@@ -27,6 +27,11 @@ public class DealController {
 	@Autowired
 	DealDao dealdao;
 	
+	@RequestMapping(value="/submitDeal", method = RequestMethod.GET)
+    public String saveDeal(){
+        return "RegisterDeal";
+    }
+	
 	@RequestMapping(value="/submitDeal", method = RequestMethod.POST)
 	public String saveDeal(@RequestBody String jdeal){
 		System.out.println("jdeal"+jdeal);
