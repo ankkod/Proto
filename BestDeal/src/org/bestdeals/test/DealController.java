@@ -4,18 +4,27 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonReader;
+import javax.servlet.http.HttpServletRequest;
 
 import org.bestdeals.dao.DealDao;
 import org.bestdeals.model.Deal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.servlet.mvc.support.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -76,18 +85,28 @@ public class DealController {
 	}
 	//Incomplete
 	@RequestMapping(value="/getDealsAll", method = RequestMethod.GET)
-	public String getDeals(){
+	public ModelAndView getDeals(){
 		List<Deal> deals= dealdao.getDeals();
 		System.out.println("deals"+ deals);
 		ObjectMapper omapper=new ObjectMapper();
 		try {
 			String list=omapper.writeValueAsString(deals);
+//			JsonFactory
 			System.out.println("delas in json"+ list);
+//			JsonArrayBuilder jsonreader=Json.createArrayBuilder();
+//			jsonreader.add(list);
+//			JsonArray jsonarr=jsonreader.build();
+//			System.out.println("JSONARRAY "+jsonarr);
+			//Json
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "RegisterDeal";
+		ModelAndView model = new ModelAndView("DisplayDeal");
+		model.addObject("List", deals);
+
+//		request.setAttribute("List", deals);
+		return model;
 		
 	}
 	

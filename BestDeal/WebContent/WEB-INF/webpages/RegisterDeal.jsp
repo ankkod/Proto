@@ -55,7 +55,6 @@
   </head>
   <body>
   <h1 class="header">Register Your Deal</h1>
-  
   <div class="container">
 	<label>DEAL TYPE</label>
 	<div class="row">
