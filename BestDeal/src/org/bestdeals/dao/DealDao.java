@@ -82,6 +82,7 @@ public class DealDao {
 			expiry.setTime(deal.getEndDate());
 			if(current.getTime().before(expiry.getTime())){
 				deals.add(deal);
+				System.out.println("inside getdeals "+deal);
 			}
 		}
 		
