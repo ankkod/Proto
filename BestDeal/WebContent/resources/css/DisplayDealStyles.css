@@ -1,0 +1,156 @@
+.header
+{
+    display: block;
+    height: 48px;
+    position: relative;
+    max-width: 1200px;
+    min-width: 220px;
+    margin: 0 auto;
+    background-color: #7b9b00;
+}
+
+.submitblock
+{
+    display: block;
+    height: 45px;
+    position:relative;
+    max-width: 1200px;
+    min-width: 220px;
+    margin: 0 auto;
+    background-color:#eae9e4;
+    margin-top: -20px;
+}
+
+.dealclass
+{
+    display: block;
+    height: 845px;
+    position:relative;
+    max-width: 1200px;
+    min-width: 220px;
+    margin: 0 auto;
+background-color:#f4f4f2;
+    margin-top: -2px;
+    overflow: auto;
+ 
+}
+
+    .dealdetail
+{
+    display: table;
+    height: 150px;
+    position:relative;
+    max-width: 1200px;
+    min-width: 220px;
+    margin: 0 auto;
+    background-color:#ffffff;
+    margin-top: 20px;
+    border-top: 2px;
+    border-top-style:groove;
+table-layout: fixed;
+    width: 100%;
+} 
+.column
+{
+    display: table-cell;
+    
+    
+}
+
+ul
+{
+margin-left:200px;
+   
+    
+}
+li
+{
+    
+display: inline;   
+float:left;
+}
+
+li a {
+    display: block;
+    padding: 8px;
+    background-color: #89ac00;
+    text-decoration: none;
+    font-family: sans-serif;
+    height: 25px;
+   color: azure;
+    margin-top: 2px;
+}
+
+.Abutton
+{
+display: block;
+text-decoration: none;
+height: 30px;
+width: 100px;
+position: relative;
+margin-top: 8px;    
+font-family:  sans-serif;
+text-align: center;
+margin-top: 8px;    
+   
+}
+aside {
+    display: block;
+    
+    height: 40px;
+    width: 50px
+}
+.column.textstylehits
+{
+    text-align: center;
+    font-family: sans-serif;
+    color:#b91f00;
+    font-size: 30px;
+    position: relative;
+    top: 50px;
+}
+
+.column.textstyledeal
+{
+    text-align:left;
+    font-family: sans-serif;
+    color:#5f5f4b;
+    font-size: 15px;
+    position: relative;
+
+    
+    
+}
+
+.dealcreator
+{
+    font-style: italic;
+
+    font-family: sans-serif;
+    color:#252524;
+    font-size: 13px;
+    position: relative;
+    margin-top: 25px;
+
+}
+
+.dealdate
+{
+    font-style: italic;
+
+    font-family: sans-serif;
+    color:#5f5f4b;
+    font-size: 15px;
+    position: relative;
+    
+    
+}
+.dealimage
+{
+    
+    height: 150px;
+    width: 90px;
+    position: absolute;
+    margin-left: 70;
+    margin-top: 0;
+}
